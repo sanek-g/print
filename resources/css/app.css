@@ -2,6 +2,48 @@
 @tailwind components;
 @tailwind utilities;
 
+/* .contentSwiper{
+  min-height: 500px;
+} */
+
+/* .titleSwiper {
+  height: 950px;
+} */
+
+.titleSwiper .swiper-pagination {
+  top: auto;
+  bottom: 0;
+}
+
+.titleSwiper .swiper-pagination-bullet {
+  width: 25px;
+  height: 25px;
+  line-height: 25px;
+  color: white;
+  background-color: blue;
+}
+
+.titleSwiper .swiper-button-next,
+.titleSwiper .swiper-button-prev {
+  background-color: blue;
+  /* background-position: center; */
+  height: 40px;
+  width: 40px;
+  /* background-size: 80px; */
+  /* background-repeat: no-repeat; */
+  /* padding: 1px 22px; */
+  border-radius: 100%;
+  /* border: 2px solid black; */
+  top: auto;
+  bottom: 8px;
+}
+
+.titleSwiper .swiper-button-next::after,
+.titleSwiper .swiper-button-prev::after {
+  font-size: 20px;
+  color: white;
+}
+
 nav {
     transition: transform .3s ease;
 }
@@ -18,23 +60,14 @@ nav {
 }
 
 .swiper-button-next{
-    top: 2.2rem !important;
+    /* bottom: 2.2rem !important; */
     animation: 1s infinite arrow-right;
 }
 
 .swiper-button-prev{
-    top: 2.2rem !important;
+    /* bottom: 2.2rem !important; */
     animation: 1s infinite arrow-left;
 }
-
-.animate-r {
-    animation: 1s infinite arrow-right ease-in-out;
-}
-
-.animate-l {
-    animation: 1s infinite arrow-left ease-in-out;
-}
-
 
 @keyframes arrow-right {
     0% {

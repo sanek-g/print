@@ -8,7 +8,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,800,800italic">
-    <link rel="shortcut icon" href="{{asset('icons/wico.ico')}}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{asset('storage/icons/wico.ico')}}" type="image/x-icon">
     @vite('resources/css/app.css')
 </head>
 
@@ -19,8 +19,8 @@
       <div class="flex items-center">
         
           <a class="mr-10" href="/">
-            <img class="h-12 w-auto hidden lg:block" src="{{asset('img/d-logo.png')}}" alt="">
-            <img class="h-12 w-auto block lg:hidden" src="{{asset('img/m-logo.png')}}" alt="">
+            <img class="h-12 w-auto block lg:hidden" src="{{asset('storage/img/m-logo.png')}}" alt="">
+            <img class="h-12 w-auto hidden lg:block" src="{{asset('storage/img/d-logo.png')}}" alt="">
           </a>
           
         

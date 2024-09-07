@@ -1,20 +1,28 @@
 // core version + navigation, pagination modules:
 import Swiper from 'swiper';
 // import { Autoplay, Navigation, Pagination } from 'swiper/modules';
-import { Autoplay, Navigation } from 'swiper/modules';
+import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 // import Swiper and modules styles
 import 'swiper/css';
 import 'swiper/css/navigation';
-// import 'swiper/css/pagination';
+import 'swiper/css/pagination';
 
 // init Swiper:
 const swiper = new Swiper('.titleSwiper', {
    // configure Swiper to use modules
-   modules: [Navigation],
+   modules: [Navigation, Pagination],
   slidesPerView: 1,
   navigation: {
     nextEl: ".swiper-button-next",
     prevEl: ".swiper-button-prev",
+  },
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+    // dynamicBullets: true,
+    renderBullet: function(index, className){
+      return '<span class="' + className + '">' + (index + 1) + '</span>';
+    },
   },
   // centeredSlides: true,
   // autoplay: {
@@ -23,7 +31,6 @@ const swiper = new Swiper('.titleSwiper', {
   // },
   loop: true,
   allowTouchMove:false,
- 
 });
 
 // init Swiper:
@@ -43,20 +50,26 @@ const swiper2 = new Swiper('.contentSwiper', {
    
   },
 },
+nested: true,
 });
 
 // init Swiper:
 const swiper3 = new Swiper('.mySwiper', {
   // configure Swiper to use modules
   modules: [Autoplay],
- slidesPerView: 2,
+ slidesPerView: 1,
  // centeredSlides: true,
  autoplay: {
    delay: 2500,
    disableOnInteraction: false,
  },
  loop: true,
-
+ breakpoints: {
+  1024: {
+    slidesPerView: 2,
+   
+  },
+},
 });
 
 
