@@ -1,4 +1,4 @@
-<x-layout.app navid="main">
+<x-layout.app>
 
     <section id="banner" class="h-lvh bg-center bg-cover relative"
         style="background-image: url('{{ asset('storage/img/banner.jpg') }}');">
@@ -92,9 +92,8 @@
 
         <div class="bg-gradient-to-br from-gray-800 to-gray-400">
 
-            <div class="lg:w-2/3 w-full mx-auto">
-                <div class="p-5"><h3 class="text-xl md:text-3xl text-gray-100">Unsere Leistungen:</h3></div>
-            
+            <div class="lg:w-2/3 w-full container mx-auto">
+
                 <div class="swiper titleSwiper">
                     <div class="swiper-wrapper">
 
@@ -199,33 +198,88 @@
 
             </div>
         </div>
-    </section>
 
-    <section>
-        <div class="text-gray-100 w-full bg-gradient-to-r from-cyan-800 to-cyan-500 py-16 px-5">
 
-            <div class="lg:w-2/3 w-full mx-auto divide-y-2 divide-cyan-400 flex flex-col items-center text-base md:text-xl">
 
-                <p class="lg:w-2/3 w-full leading-relaxed mb-6">
-                    Ob für Firmen, Vereine, Schulen oder Einzelpersonen - wir bieten Ihnen erstklassige Flock- und Flexdruck für jede Gelegenheit. Verleihen Sie Ihrer Kleidung eine persönliche Note oder lassen Sie Ihre Gruppe im einheitlichen Look strahlen!
-                </p>
 
-                <div class="py-6 text-xl md:text-3xl lg:w-2/3 w-full text-center">Kontaktieren Sie uns jetzt!</div>
 
-                <div class="pt-6 space-y-0 text-base md:text-xl lg:w-2/3 w-full flex justify-center">
-                   <div class="flex flex-col">
+        <div
+            class="flex justify-center items-center text-gray-100 w-full bg-gradient-to-r from-cyan-800 to-cyan-500 py-20">
+        </div>
 
-                    <a href="tel:12345678" class="text-gray-100 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-base md:text-xl">Tel: 12345678</a>
-                    <a href="mailto:test@mail.de" class="text-gray-100 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-base md:text-xl">E-Mail: test@mail.de</a>
-                    <a href="https://www.instagram.com/" class="text-gray-100 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-base md:text-xl">Instagram: @wulfert_textile_print</a>
 
-                   </div>
+
+
+        <div class="flex flex-col md:flex-row">
+            <div class="md:w-1/3 w-full bg-gray-600 text-gray-100 text-lg md:text-2xl flex justify-center items-center p-3">
+                <p>Vereintrikos für das nächste Spiel</p>
+            </div>
+            <div class="md:w-2/3 w-full">
+
+                <div class="swiper mySwiper bg-gradient-to-br from-gray-800 to-gray-400">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slid">
+                            <img class="block w-full h-full object-cover" src="{{ asset('storage/icons/white.png') }}"
+                                alt="shirt">
+                        </div>
+                        <div class="swiper-slide">
+                            <img class="block w-full h-full object-cover" src="{{ asset('storage/icons/white.png') }}"
+                                alt="shirt">
+                        </div>
+                        <div class="swiper-slide">
+                            <img class="block w-full h-full object-cover" src="{{ asset('storage/icons/white.png') }}"
+                                alt="shirt">
+                        </div>
+                        <div class="swiper-slide">
+                            <img class="block w-full h-full object-cover" src="{{ asset('storage/icons/white.png') }}"
+                                alt="shirt">
+                        </div>
+                    </div>
                 </div>
 
-               
             </div>
 
         </div>
+
+
+        <div
+            class="flex justify-center items-center text-gray-100 w-full bg-gradient-to-r from-cyan-800 to-cyan-500 py-20">
+        </div>
+
+
+        <div class="flex flex-col-reverse md:flex-row">
+            <div class="md:w-2/3 w-full">
+
+                <div class="swiper mySwiper bg-gradient-to-br from-gray-800 to-gray-400">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img class="block w-full h-full object-cover" src="{{ asset('storage/icons/white.png') }}"
+                                alt="shirt">
+                        </div>
+                        <div class="swiper-slide">
+                            <img class="block w-full h-full object-cover" src="{{ asset('storage/icons/white.png') }}"
+                                alt="shirt">
+                        </div>
+                        <div class="swiper-slide">
+                            <img class="block w-full h-full object-cover" src="{{ asset('storage/icons/white.png') }}"
+                                alt="shirt">
+                        </div>
+                        <div class="swiper-slide">
+                            <img class="block w-full h-full object-cover" src="{{ asset('storage/icons/white.png') }}"
+                                alt="shirt">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="md:w-1/3 w-full bg-gray-600 text-gray-100 text-lg md:text-2xl flex justify-center items-center p-3">
+                <p>Schul-T-Shirts für Klassenfahrten und Abschlussfeier</p>
+            </div>
+        </div>
+
+
+
+
     </section>
 
 </x-layout.app>

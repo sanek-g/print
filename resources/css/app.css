@@ -1,19 +1,31 @@
+@import url(brands.min.css);
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* .contentSwiper{
-  min-height: 500px;
-} */
-
-/* .titleSwiper {
-  height: 950px;
-} */
-
-.titleSwiper .swiper-pagination {
-  top: auto;
-  bottom: 0;
+i {
+  font-family: 'Font Awesome 6 Brands';
+  font-size: large;
+  font-style: normal;
 }
+
+
+/* .icon:before {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  line-height: 1;
+  text-transform: none !important;
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 400;
+}
+
+.icon.brands:before {
+  font-family: 'Font Awesome 5 Brands';
+} */
 
 .titleSwiper .swiper-pagination-bullet {
   width: 25px;
@@ -21,26 +33,19 @@
   line-height: 25px;
   color: white;
   background-color: blue;
+  text-align: center;
 }
 
 .titleSwiper .swiper-button-next,
 .titleSwiper .swiper-button-prev {
-  background-color: blue;
-  /* background-position: center; */
-  height: 40px;
-  width: 40px;
-  /* background-size: 80px; */
-  /* background-repeat: no-repeat; */
-  /* padding: 1px 22px; */
-  border-radius: 100%;
-  /* border: 2px solid black; */
-  top: auto;
-  bottom: 8px;
+  top: 64px;
 }
 
 .titleSwiper .swiper-button-next::after,
 .titleSwiper .swiper-button-prev::after {
-  font-size: 20px;
+  padding: 5px;
+  cursor: pointer;
+  font-size: 30px;
   color: white;
 }
 
@@ -61,25 +66,28 @@ nav {
 
 .swiper-button-next{
     /* bottom: 2.2rem !important; */
-    animation: 1s infinite arrow-right;
+    /* animation: 2s infinite arrow-right; */
 }
 
 .swiper-button-prev{
     /* bottom: 2.2rem !important; */
-    animation: 1s infinite arrow-left;
+    /* animation: 2s infinite arrow-right; */
 }
 
 @keyframes arrow-right {
     0% {
-      transform: translateX(-10px);
+      transform: scale(1);
+      /* transform: translateX(-10px); */
       /* animation-timing-function: cubic-bezier(0.8, 0, 1, 1); */
     }
     50% {
-      transform: translateX(0);
+      transform: scale(.9);
+      /* transform: translateX(0); */
       /* animation-timing-function: cubic-bezier(0, 0, 0.2, 1); */
     }
     100%{
-        transform: translateX(-10px);
+      transform: scale(1);
+        /* transform: translateX(-10px); */
     }
   }
 

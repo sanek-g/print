@@ -18,11 +18,12 @@ const swiper = new Swiper('.titleSwiper', {
   },
   pagination: {
     el: ".swiper-pagination",
-    clickable: true,
+    type: "progressbar",
+    // clickable: true,
     // dynamicBullets: true,
-    renderBullet: function(index, className){
-      return '<span class="' + className + '">' + (index + 1) + '</span>';
-    },
+    // renderBullet: function(index, className){
+    //   return '<span class="' + className + '">' + (index + 1) + '</span>';
+    // },
   },
   // centeredSlides: true,
   // autoplay: {
@@ -36,7 +37,7 @@ const swiper = new Swiper('.titleSwiper', {
 // init Swiper:
 const swiper2 = new Swiper('.contentSwiper', {
   // configure Swiper to use modules
-  modules: [Autoplay],
+  modules: [Autoplay, Pagination],
  slidesPerView: 1,
  // centeredSlides: true,
  autoplay: {
@@ -51,6 +52,15 @@ const swiper2 = new Swiper('.contentSwiper', {
   },
 },
 nested: true,
+pagination: {
+  el: ".swiper-pagination",
+  type: "progressbar",
+  // clickable: true,
+  // dynamicBullets: true,
+  // renderBullet: function(index, className){
+  //   return '<span class="' + className + '">' + (index + 1) + '</span>';
+  // },
+},
 });
 
 // init Swiper:
@@ -88,10 +98,13 @@ const swiper3 = new Swiper('.mySwiper', {
 
 
 const nav = document.getElementById('nav')
-const triggerHeight = window.innerHeight - 10; // Höhe des Bildschirms
+
+if(nav.classList.contains('main')) {
+
+  const triggerHeight = window.innerHeight - 10; // Höhe des Bildschirms
 // let lastScrollTop = 0;
 
-window.addEventListener('scroll', () => {
+  window.addEventListener('scroll', () => {
 
   let currentScroll = window.scrollY || document.documentElement.scrollTop;
 
@@ -106,32 +119,40 @@ window.addEventListener('scroll', () => {
   
 })
 
+}
+
+
+
 const arrow = document.getElementById('arrow')
 
-arrow.addEventListener('click', function(arrow) {
+if(arrow){
+  arrow.addEventListener('click', function(arrow) {
 
-  arrow.preventDefault();
-  const targetId = this.getAttribute('href').substring(1);
-  const targetElement = document.getElementById(targetId);
-  const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY;
-  const startPosition = window.scrollY;
-  const distance = targetPosition - startPosition;
-  const duration = 1000; // Dauer des Scrollens in Millisekunden
-  let start = null;
-
+    arrow.preventDefault();
+    const targetId = this.getAttribute('href').substring(1);
+    const targetElement = document.getElementById(targetId);
+    const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY;
+    const startPosition = window.scrollY;
+    const distance = targetPosition - startPosition;
+    const duration = 1000; // Dauer des Scrollens in Millisekunden
+    let start = null;
   
+    
+  
+    function step(timestamp) {
+        if (!start) start = timestamp;
+        const progress = timestamp - start;
+        const easeInOutQuad = progress => progress < 0.5 ? 2 * progress * progress : -1 + (4 - 2 * progress) * progress;
+        const scrollProgress = easeInOutQuad(progress / duration);
+        window.scrollTo(0, startPosition + distance * scrollProgress);
+        if (progress < duration) window.requestAnimationFrame(step);
+    }
+  
+    window.requestAnimationFrame(step);
+  });
+}
 
-  function step(timestamp) {
-      if (!start) start = timestamp;
-      const progress = timestamp - start;
-      const easeInOutQuad = progress => progress < 0.5 ? 2 * progress * progress : -1 + (4 - 2 * progress) * progress;
-      const scrollProgress = easeInOutQuad(progress / duration);
-      window.scrollTo(0, startPosition + distance * scrollProgress);
-      if (progress < duration) window.requestAnimationFrame(step);
-  }
 
-  window.requestAnimationFrame(step);
-});
 
 
 const openButton = document.getElementById('menu-open')
