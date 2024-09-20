@@ -1,4 +1,4 @@
-<x-layout.app navid="main">
+<x-app-layout navid="main">
 
     <section id="banner" class="h-lvh bg-center bg-cover relative"
         style="background-image: url('{{ asset('storage/img/banner.jpg') }}');">
@@ -9,25 +9,11 @@
 
             <div class="flex flex-col justify-center items-center flex-grow pt-20">
                 <div class="z-10">
-                    <!-- Obere Linie -->
-                    {{-- <div class="relative">
-                        <div class="absolute top-0 left-0 border-t-2 border-gray-100 animate-line"></div>
-                        <!-- Titel -->
-                    </div> --}}
-
+           
                     <div class="animate-fade m-5 opacity-0 flex justify-center">
                         <img class="w-full" src="{{asset('storage/img/d-logo.png')}}" alt="">
                     </div>
                     
-
-                    {{-- <h2 class="font-bold text-sm md:text-lg xl:text-3xl animate-fade m-5 opacity-0">
-                        Wulfert <span class="uppercase font-normal">Textile print</span>
-                    </h2> --}}
-
-                    {{-- <div class="relative">
-                        <!-- Untere Linie -->
-                        <div class="absolute bottom-0 right-0 border-t-2 border-gray-100 animate-line"></div>
-                    </div> --}}
                 </div>
 
                
@@ -92,44 +78,42 @@
 
         <div class="bg-gradient-to-br from-gray-800 to-gray-400">
 
-            <div class="lg:w-2/3 w-full mx-auto">
+            <div class="w-full md:w-2/3 lg:w-1/2 px-5 mx-auto pb-5">
                 <div class="p-5"><h3 class="text-xl md:text-3xl text-gray-100">Unsere Leistungen:</h3></div>
             
-                <div class="swiper titleSwiper">
+                <div class="swiper titleSwiper rounded-lg">
                     <div class="swiper-wrapper">
 
                         {{-- slide 1 --}}
+                        @foreach ($services as $service)
                         <div class="swiper-slide">
-                            <div class="bg-gray-600 text-gray-100 text-xl md:text-3xl h-32 flex items-center">
-                                <h3 class="px-16">Firmenbekleidung mit Ihrem Logo</h3>
+
+                            <div class="bg-gray-600 text-gray-100 text-xl md:text-3xl h-20 flex items-center rounded-lg mb-3">
+                                <h3 class="px-16"> {{ $service->title }} </h3>
                             </div>
 
-                            <div class="swiper contentSwiper h-full">
+                            <div class="swiper contentSwiper rounded-lg">
                                 <div class="swiper-wrapper mt-1">
-                                    <div class="swiper-slide bg-gradient-to-br from-gray-800 to-gray-400">
-                                        <img class="block w-full h-full object-cover" src="{{ asset('storage/icons/white.png') }}"
-                                            alt="shirt">
+
+                                    @foreach ($service->serviceImages as $image)
+
+                                    <div class="swiper-slide">
+                                        <img class="block w-full object-cover rounded-lg aspect-[3/4]" src="{{ asset('storage/' . $image->path) }}" alt="shirt">
                                     </div>
-                                    <div class="swiper-slide bg-gradient-to-br from-gray-800 to-gray-400">
-                                        <img class="block w-full h-full object-cover" src="{{ asset('storage/icons/white.png') }}"
-                                            alt="shirt">
-                                    </div>
-                                    <div class="swiper-slide bg-gradient-to-br from-gray-800 to-gray-400">
-                                        <img class="block w-full h-full object-cover" src="{{ asset('storage/icons/white.png') }}"
-                                            alt="shirt">
-                                    </div>
-                                    <div class="swiper-slide bg-gradient-to-br from-gray-800 to-gray-400">
-                                        <img class="block w-full h-full object-cover" src="{{ asset('storage/icons/white.png') }}"
-                                            alt="shirt">
-                                    </div>
+                                        
+                                    @endforeach
+
                                 </div>
                                 <div class="swiper-pagination"></div>
                             </div>
 
                         </div>
+                        @endforeach
+                    
 
                         {{-- slide 2  --}}
-                        <div class="swiper-slide">
+
+                        {{-- <div class="swiper-slide">
                             <div class="bg-gray-600 text-gray-100 text-xl md:text-3xl h-32 flex items-center">
                                 <h3 class="px-16">Vereintrikos für das nächste Spiel</h3>                                
                             </div>
@@ -137,56 +121,26 @@
                             <div class="swiper contentSwiper">
                                 <div class="swiper-wrapper mt-1">
                                     <div class="swiper-slide bg-gradient-to-br from-gray-800 to-gray-400">
-                                        <img class="block w-full h-full object-cover" src="{{ asset('storage/icons/white.png') }}"
-                                            alt="shirt">
+                                        <img class="block w-full object-cover" src="{{ asset('storage/icons/white.png') }}"
+                                            alt="shirt" style="aspect-ratio:4/5;">
                                     </div>
                                     <div class="swiper-slide bg-gradient-to-br from-gray-800 to-gray-400">
-                                        <img class="block w-full h-full object-cover" src="{{ asset('storage/icons/white.png') }}"
-                                            alt="shirt">
+                                        <img class="block w-full object-cover" src="{{ asset('storage/icons/white.png') }}"
+                                            alt="shirt" style="aspect-ratio:4/5;">
                                     </div>
                                     <div class="swiper-slide bg-gradient-to-br from-gray-800 to-gray-400">
-                                        <img class="block w-full h-full object-cover" src="{{ asset('storage/icons/white.png') }}"
-                                            alt="shirt">
+                                        <img class="block w-full object-cover" src="{{ asset('storage/icons/white.png') }}"
+                                            alt="shirt" style="aspect-ratio:4/5;">
                                     </div>
                                     <div class="swiper-slide bg-gradient-to-br from-gray-800 to-gray-400">
-                                        <img class="block w-full h-full object-cover" src="{{ asset('storage/icons/white.png') }}"
-                                            alt="shirt">
+                                        <img class="block w-full object-cover" src="{{ asset('storage/icons/white.png') }}"
+                                            alt="shirt" style="aspect-ratio:4/5;">
                                     </div>
                                 </div>
                                 <div class="swiper-pagination"></div>
                             </div>
 
-                        </div>
-
-                        {{-- slide 3 --}}
-                        <div class="swiper-slide">
-                            <div class="bg-gray-600 text-gray-100 text-xl md:text-3xl h-32 flex items-center">
-                                <h3 class="px-16">Schul-T-Shirts für Klassenfahrten und Abschlussfeier</h3>
-                            </div>
-
-                            <div class="swiper contentSwiper">
-                                <div class="swiper-wrapper mt-1">
-                                    <div class="swiper-slide bg-gradient-to-br from-gray-800 to-gray-400">
-                                        <img class="block w-full h-full object-cover" src="{{ asset('storage/icons/white.png') }}"
-                                            alt="shirt">
-                                    </div>
-                                    <div class="swiper-slide bg-gradient-to-br from-gray-800 to-gray-400">
-                                        <img class="block w-full h-full object-cover" src="{{ asset('storage/icons/white.png') }}"
-                                            alt="shirt">
-                                    </div>
-                                    <div class="swiper-slide bg-gradient-to-br from-gray-800 to-gray-400">
-                                        <img class="block w-full h-full object-cover" src="{{ asset('storage/icons/white.png') }}"
-                                            alt="shirt">
-                                    </div>
-                                    <div class="swiper-slide bg-gradient-to-br from-gray-800 to-gray-400">
-                                        <img class="block w-full h-full object-cover" src="{{ asset('storage/icons/white.png') }}"
-                                            alt="shirt">
-                                    </div>
-                                </div>
-                                <div class="swiper-pagination"></div>
-                            </div>
-
-                        </div>
+                        </div> --}}
 
                     </div>
                    
@@ -228,4 +182,4 @@
         </div>
     </section>
 
-</x-layout.app>
+</x-app-layout>

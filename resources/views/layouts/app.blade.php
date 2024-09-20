@@ -13,9 +13,9 @@
     @vite('resources/css/app.css')
 </head>
 
-<body class="h-full" style="font-family: 'Open Sans'">
+<body class="h-full min-h-screen flex flex-col" style="font-family: 'Open Sans'">
 
-    <nav id="nav" class="bg-gray-800 fixed right-0 left-0 z-20 shadow-md -translate-y-full {{ isset($navid) ? $navid : 'show'}}">
+    <nav id="nav" class="bg-gray-800 fixed right-0 left-0 z-20 shadow-md -translate-y-full {{ $navid ?? 'show'}}">
         <div class="container mx-auto py-3 px-5 flex justify-between items-center">
             <div class="flex items-center">
 
@@ -29,6 +29,7 @@
                     <x-nav-link href="/" :active="request()->is('/')">Home</x-nav-link>
                     <x-nav-link href="/about" :active="request()->is('about')">About</x-nav-link>
                     <x-nav-link href="/contact" :active="request()->is('contact')">Contact</x-nav-link>
+                    <x-nav-link href="/admin" :active="request()->is('admin')">Admin</x-nav-link>
                 </div>
 
             </div>
@@ -89,7 +90,7 @@
 
 
 
-    <main>
+    <main class="flex-grow">
         {{ $slot }}
     </main>
 

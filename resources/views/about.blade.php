@@ -1,4 +1,4 @@
-<x-layout.app>
+<x-app-layout>
     
     <section>
         <div class="pt-48 pb-36 bg-fixed bg-center bg-no-repeat bg-cover" style="background-image: url('{{ asset('storage/img/banner.jpg') }}');">
@@ -18,6 +18,6 @@
 
 
 
-</x-layout.app>
+</x-app-layout>
 
 

@@ -3,6 +3,16 @@
 @tailwind components;
 @tailwind utilities;
 
+.image-preview {
+  width: 300px;
+  height: 300px;
+  border: 2px solid #ddd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  object-fit: cover;
+}
+
 i {
   font-family: 'Font Awesome 6 Brands';
   font-size: large;
@@ -27,18 +37,18 @@ i {
   font-family: 'Font Awesome 5 Brands';
 } */
 
-.titleSwiper .swiper-pagination-bullet {
+/* .titleSwiper .swiper-pagination-bullet {
   width: 25px;
   height: 25px;
   line-height: 25px;
   color: white;
   background-color: blue;
   text-align: center;
-}
+} */
 
 .titleSwiper .swiper-button-next,
 .titleSwiper .swiper-button-prev {
-  top: 64px;
+  top: 40px;
 }
 
 .titleSwiper .swiper-button-next::after,
