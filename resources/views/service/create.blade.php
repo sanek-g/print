@@ -8,8 +8,11 @@
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-end">
-                        <li class="breadcrumb-item active" aria-current="page">
-                            Leistungen
+                        <li class="breadcrumb-item">
+                            <a href="{{route('service.index')}}">Leistungen</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            Neu
                         </li>
                     </ol>
                 </div>
@@ -22,11 +25,11 @@
 
                 <form action="{{ route('service.store') }}" method="post" enctype="multipart/form-data">
                     @csrf
-                    <div class="col-6 mb-3">
+                    <div class="col-lg-6 mb-3">
                         <x-input-text type="text" name="title" placeholder="Bezeichnung" :value="old('title')" />
                         <x-input-error :messages="$errors->get('title')" class="mt-3" />
                     </div>
-                    <div class="col-6 mb-3">
+                    <div class="col-lg-6 col-12 mb-3">
                         <x-input-text id="imageInput" type="file" name="service_images[]" multiple />
                         <x-input-error :messages="$errors->get('service_images')" class="mt-3" />
 
@@ -37,11 +40,16 @@
                         @enderror
 
                     </div>
-                    <div class="image-preview mb-3 d-flex" id="imagePreview">
-                        Image Preview
+                    <div class="card overflow-x-auto">
+
+                        <div class="image-preview d-flex" id="imagePreview">
+                            Image Preview
+                        </div>
+
                     </div>
+
                     <div class="">
-                        <input type="submit" class="btn btn-primary" value="Speichern">
+                        <input type="submit" class="btn btn-primary mt-3" value="Speichern">
                     </div>
                 </form>
 
@@ -63,7 +71,7 @@
                 reader.onload = function(e) {
                     const img = document.createElement('img');
                     img.src = e.target.result;
-                    img.classList.add('image-preview', 'me-3');
+                    img.classList.add('image-preview', 'me-2', 'border');
                     imagePreview.appendChild(img);
                 }
 
@@ -71,6 +79,7 @@
             }
 
             imagePreview.classList.remove('image-preview')
+
 
         });
     </script>

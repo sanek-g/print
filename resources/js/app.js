@@ -41,11 +41,11 @@ modules: [Autoplay, Pagination],
 spaceBetween: 10,
  slidesPerView: 1,
  // centeredSlides: true,
-//  autoplay: {
-//    delay: 2500,
-//    disableOnInteraction: false,
-//  },
-//  loop: true,
+ autoplay: {
+   delay: 2500,
+   disableOnInteraction: false,
+ },
+ loop: true,
  breakpoints: {
   1024: {
     slidesPerView: 2,

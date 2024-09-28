@@ -3,9 +3,26 @@
 @tailwind components;
 @tailwind utilities;
 
+.item .activeIcon{
+  @apply hidden;
+}
+
+.item.active .inactiveIcon{
+  @apply hidden;
+}
+
+.item.active .activeIcon{
+  @apply block;
+}
+
+
+
+
+
+
 .image-preview {
-  width: 300px;
-  height: 300px;
+  width: 250px;
+  height: 250px;
   border: 2px solid #ddd;
   display: flex;
   justify-content: center;

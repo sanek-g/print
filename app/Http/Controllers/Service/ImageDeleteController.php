@@ -14,6 +14,6 @@ class ImageDeleteController extends Controller
         Storage::delete('public/' . $serviceImage->path);
         $serviceImage->delete();
 
-        return back()->with(['message' => trans('infos.deleted',['attr' => 'Das Bild']), 'class' => 'alert-danger']);;
+        return back()->with(['message' => trans('infos.deleted',['attr' => 'Das Bild']), 'class' => 'alert-danger']);
     }
 }

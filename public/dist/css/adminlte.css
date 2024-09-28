@@ -15379,8 +15379,8 @@ html.maximized-card {
 /* Meine styles */
 
 .image-preview {
-  width: 300px;
-  height: 300px;
+  width: 250px;
+  height: 250px;
   border: 2px solid #ddd;
   display: flex;
   justify-content: center;

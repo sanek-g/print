@@ -27,8 +27,8 @@
 
                 <div class="hidden md:block">
                     <x-nav-link href="/" :active="request()->is('/')">Home</x-nav-link>
-                    <x-nav-link href="/about" :active="request()->is('about')">About</x-nav-link>
-                    <x-nav-link href="/contact" :active="request()->is('contact')">Contact</x-nav-link>
+                    <x-nav-link href="/about" :active="request()->is('about')">Über uns</x-nav-link>
+                    <x-nav-link href="/contact" :active="request()->is('contact')">FAQs / Kontakt</x-nav-link>
                     <x-nav-link href="/admin" :active="request()->is('admin')">Admin</x-nav-link>
                 </div>
 
@@ -75,8 +75,9 @@
 
                 {{-- <span class="mt-14"></span> --}}
                 <x-nav-link href="/" :active="request()->is('/')">Home</x-nav-link>
-                <x-nav-link href="/about" :active="request()->is('about')">About</x-nav-link>
-                <x-nav-link href="/contact" :active="request()->is('contact')">Contact</x-nav-link>
+                <x-nav-link href="/about" :active="request()->is('about')">Über uns</x-nav-link>
+                <x-nav-link href="/contact" :active="request()->is('contact')">FAQs / Kontakt</x-nav-link>
+                <x-nav-link href="/admin" :active="request()->is('admin')">Admin</x-nav-link>
                 <span class="mt-2"></span>
                 <x-nav-link href="/impressum" :active="request()->is('impressum')">Impressum</x-nav-link>
                 <x-nav-link href="/agb" :active="request()->is('agb')">AGB</x-nav-link>
@@ -100,8 +101,8 @@
 
             <div class="flex flex-col">
                 <x-nav-link href="/" :active="request()->is('/')">Home</x-nav-link>
-                <x-nav-link href="/about" :active="request()->is('about')">About</x-nav-link>
-                <x-nav-link href="/contact" :active="request()->is('contact')">Contact</x-nav-link>
+                <x-nav-link href="/about" :active="request()->is('about')">Über uns</x-nav-link>
+                <x-nav-link href="/contact" :active="request()->is('contact')">FAQs / Kontakt</x-nav-link>
                 <span class="mt-2"></span>
                 <x-nav-link href="/impressum" :active="request()->is('impressum')">Impressum</x-nav-link>
                 <x-nav-link href="/agb" :active="request()->is('agb')">AGB</x-nav-link>

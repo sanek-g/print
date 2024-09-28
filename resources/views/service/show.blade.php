@@ -8,8 +8,11 @@
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-end">
-                        <li class="breadcrumb-item active" aria-current="page">
-                            Leistungen
+                        <li class="breadcrumb-item">
+                            <a href="{{route('service.index')}}">Leistungen</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            Leistung
                         </li>
                     </ol>
                 </div>
@@ -33,43 +36,32 @@
                             </form>
                         </div>
 
-                        <div class="card-body table-responsive p-0">
-                            <table class="table table-hover text-nowrap">
-                                <tbody>
-                                    <tr>
-                                        <td>ID</td>
-                                        <td>{{$service->id}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td> Bezeichnung </td>
-                                        <td> {{$service->title}} </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Bilder</td>
-                                        <td>
-                                            <div class="row">
-                                                
-                                                    @foreach ($service->serviceImages as $image)
-                                                    <div class="col relative">
-                                                        <form action="{{route('serviceImage.delete', $image)}}" method="POST" style="position: absolute">
-                                                            @csrf
-                                                            @method('delete')
-                                                            <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure, you want to delete it?')"><i class="bi bi-trash3"></i></button>
-                                                        </form>
-                                                        <div style="width: 250px; height: 300px; overflow: hidden;">
-                                                        <img src="{{ asset('storage/' . $image->path) }}" alt="shirt" style="width: 100%; object-fit: cover;">
-                                                        </div>
-                                                    </div>
-                                                
-                                                    @endforeach
-                                                
-                                            </div>
-                                         
-                                        </td>
-                                    </tr>
+                        <div class="card-body p-0">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5 class="card-title">#{{$service->id}} - {{$service->title}}</h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row g-2">
+    
+                                        @foreach ($service->serviceImages as $image)
+                                        <div class="col-md-6 col-lg-4 col-xl-3 col-xxl-2">
+                                            <form action="{{route('serviceImage.delete', $image)}}" method="POST" style="position: absolute">
+                                                @csrf
+                                                @method('delete')
+                                                <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure, you want to delete it?')"><i class="bi bi-trash3"></i></button>
+                                            </form>
+                                            
+                                                <img src="{{ asset('storage/' . $image->path) }}" alt="shirt" style="width: 100%; height: 250px; object-fit: cover;">
+                                            
+                                        </div>
                                     
-                                </tbody>
-                            </table>
+                                        @endforeach
+    
+                                    </div>
+                                </div>
+                            </div>
+                      
                         </div>
 
                     </div>

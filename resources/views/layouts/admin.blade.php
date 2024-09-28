@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.min.css"
         integrity="sha256-Qsx5lrStHZyR9REqhUF8iQt73X06c8LGIUPzpOhwRrI=" crossorigin="anonymous">
     <!--end::Third Party Plugin(Bootstrap Icons)--><!--begin::Required Plugin(AdminLTE)-->
-    
+
     <link rel="stylesheet" href="{{ asset('dist/css/adminlte.css') }}">
     <!--end::Required Plugin(AdminLTE)--><!-- apexcharts -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/apexcharts@3.37.1/dist/apexcharts.css"
@@ -48,8 +48,9 @@
                         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end"> <a href="#"
                                 class="dropdown-item"> <!--begin::Message-->
                                 <div class="d-flex">
-                                    <div class="flex-shrink-0"> <img src="{{asset('dist/assets/img/user1-128x128.jpg')}}"
-                                            alt="User Avatar" class="img-size-50 rounded-circle me-3"> </div>
+                                    <div class="flex-shrink-0"> <img
+                                            src="{{ asset('dist/assets/img/user1-128x128.jpg') }}" alt="User Avatar"
+                                            class="img-size-50 rounded-circle me-3"> </div>
                                     <div class="flex-grow-1">
                                         <h3 class="dropdown-item-title">
                                             Brad Diesel
@@ -66,8 +67,9 @@
                             <div class="dropdown-divider"></div> <a href="#" class="dropdown-item">
                                 <!--begin::Message-->
                                 <div class="d-flex">
-                                    <div class="flex-shrink-0"> <img src="{{asset('dist/assets/img/user8-128x128.jpg')}}"
-                                            alt="User Avatar" class="img-size-50 rounded-circle me-3"> </div>
+                                    <div class="flex-shrink-0"> <img
+                                            src="{{ asset('dist/assets/img/user8-128x128.jpg') }}" alt="User Avatar"
+                                            class="img-size-50 rounded-circle me-3"> </div>
                                     <div class="flex-grow-1">
                                         <h3 class="dropdown-item-title">
                                             John Pierce
@@ -84,8 +86,9 @@
                             <div class="dropdown-divider"></div> <a href="#" class="dropdown-item">
                                 <!--begin::Message-->
                                 <div class="d-flex">
-                                    <div class="flex-shrink-0"> <img src="{{asset('dist/assets/img/user3-128x128.jpg')}}"
-                                            alt="User Avatar" class="img-size-50 rounded-circle me-3"> </div>
+                                    <div class="flex-shrink-0"> <img
+                                            src="{{ asset('dist/assets/img/user3-128x128.jpg') }}" alt="User Avatar"
+                                            class="img-size-50 rounded-circle me-3"> </div>
                                     <div class="flex-grow-1">
                                         <h3 class="dropdown-item-title">
                                             Nora Silvester
@@ -124,21 +127,69 @@
                         </div>
                     </li> <!--end::Notifications Dropdown Menu--> <!--begin::Fullscreen Toggle-->
 
+                    <li class="nav-item dropdown user-menu"> <a href="#" class="nav-link dropdown-toggle"
+                            data-bs-toggle="dropdown">
+                            <span class="d-none d-md-inline">{{ Auth::user()->name }}</span> </a>
+                        <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-end"> <!--begin::User Image-->
+                            <li class="user-header text-bg-primary"> <img
+                                    src="../../dist/assets/img/user2-160x160.jpg" class="rounded-circle shadow"
+                                    alt="User Image">
+                                <p>
+                                    {{ Auth::user()->name }}
+                                    <small>{{ Auth::user()->email }}</small>
+                                </p>
+                            </li> <!--end::User Image--> <!--begin::Menu Body-->
+                            <li class="user-body"> <!--begin::Row-->
+                                <div class="row">
+                                    <div class="col-4 text-center"> <a href="#">Followers</a> </div>
+                                    <div class="col-4 text-center"> <a href="#">Sales</a> </div>
+                                    <div class="col-4 text-center"> <a href="#">Friends</a> </div>
+                                </div> <!--end::Row-->
+                            </li> <!--end::Menu Body--> <!--begin::Menu Footer-->
+                            <li class="user-footer">
+                                <form action="{{ route('admin.logout') }}" method="POST">
+                                    @csrf
+                                    <button type="submit" class="btn btn-default btn-flat float-end">Logout</button>
+                                </form>
+                            </li> <!--end::Menu Footer-->
+                        </ul>
+                    </li> <!--end::User Menu Dropdown-->
+
                 </ul> <!--end::End Navbar Links-->
             </div> <!--end::Container-->
         </nav> <!--end::Header--> <!--begin::Sidebar-->
         <aside class="app-sidebar bg-body-secondary shadow" data-bs-theme="dark"> <!--begin::Sidebar Brand-->
-            <div class="sidebar-brand"> <!--begin::Brand Link--> <a href="{{route('admin.dashboard')}}" class="brand-link"><span
-                        class="brand-text fw-light">Wulfert Textile Print</span> <!--end::Brand Text--> </a>
-                <!--end::Brand Link--> </div> <!--end::Sidebar Brand--> <!--begin::Sidebar Wrapper-->
+            <div class="sidebar-brand"> <!--begin::Brand Link--> <a href="{{ route('home') }}"
+                    class="brand-link"><span class="brand-text fw-light">Wulfert Textile Print</span>
+                    <!--end::Brand Text--> </a>
+                <!--end::Brand Link-->
+            </div> <!--end::Sidebar Brand--> <!--begin::Sidebar Wrapper-->
             <div class="sidebar-wrapper">
                 <nav class="mt-2"> <!--begin::Sidebar Menu-->
                     <ul class="nav sidebar-menu flex-column" data-lte-toggle="treeview" role="menu"
                         data-accordion="false">
-                        <li class="nav-item"> <a href=" {{ route('service.index') }} " class="nav-link"> 
-                                    <i class="nav-icon bi bi-card-checklist"></i>
-                                <p>Leistungen</p>
+                        <li class="nav-item"> <a href=" {{ route('admin.dashboard') }} " class="nav-link">
+                                <i class="nav-icon bi bi-card-checklist"></i>
+                                <p>Dashboard</p>
                             </a> </li>
+                            <li class="nav-header">EXAMPLES</li>
+                            <li class="nav-item"> <a href=" {{ route('company.index') }} " class="nav-link">
+                                <i class="nav-icon bi bi-card-checklist"></i>
+                                <p>Firma</p>
+                            </a>
+                        </li>
+                        <li class="nav-header">EXAMPLES</li>
+                        <li class="nav-item"> <a href=" {{ route('service.index') }} " class="nav-link">
+                                <i class="nav-icon bi bi-card-checklist"></i>
+                                <p>Leistungen</p>
+                            </a>
+                        </li>
+                       
+                        <li class="nav-item"> <a href=" {{ route('faq.index') }} " class="nav-link">
+                            <i class="nav-icon bi bi-card-checklist"></i>
+                            <p>Häufige Fragen</p>
+                        </a>
+                    </li>
                         <li class="nav-header">EXAMPLES</li>
                     </ul>
                     <!--end::Sidebar Menu-->
@@ -148,15 +199,15 @@
         <main class="app-main"> <!--begin::App Content Header-->
 
             <x-flash />
-           
-          {{ $slot }}
+
+            {{ $slot }}
 
         </main> <!--end::App Main--> <!--begin::Footer-->
         <footer class="app-footer"> <!--begin::To the end-->
             <div class="float-end d-none d-sm-inline">Anything you want</div> <!--end::To the end-->
             <!--begin::Copyright--> <strong>
                 Copyright &copy; 2014-{{ now()->year }}&nbsp;
-                <a href="{{route('admin.dashboard')}}" class="text-decoration-none">Dashboard</a>.
+                <a href="{{ route('admin.dashboard') }}" class="text-decoration-none">Dashboard</a>.
             </strong>
             All rights reserved.
             <!--end::Copyright-->

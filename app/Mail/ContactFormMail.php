@@ -29,8 +29,6 @@ class ContactFormMail extends Mailable implements ShouldQueue
     
         $this->filePath = $filePath;
 
-        // $this->fileName = $fileName;
-
     
     }
 
